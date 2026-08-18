@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auditoria-dados-automatizada"
+version = "0.1.0"
+description = "Sistema automatizado em Python para auditoria de dados de vendas, geração de relatórios e validação de integridade"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Matheus Scherer", email = "contatomatheusscherer@gmail.com" }
+]
+keywords = ["python", "auditoria", "dados", "pandas", "validacao", "vendas"]
+dependencies = [
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.scripts]
+auditoria-dados = "auditoria_dados.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
